@@ -20,9 +20,20 @@ namespace Repaso_çPrueba
             Console.WriteLine("-Sumatoria: {0} ", Sumatoria(vector));
             Console.WriteLine("-Promedio: {0} ", Promedio(vector));
             Console.WriteLine("-Total Decenas: {0} ", ContarDecenas(vector));
+            Console.WriteLine("-Des. Estándar: {0} ", DesvEstandar(vector));
 
             Console.ReadKey();
 
+        }
+        public static double DesvEstandar(int[] x)
+        {
+            double res = 0;
+            double prom = Promedio(x);
+            for(int i = 0; i < MAX; i++)
+            {
+               res = res + (x[i] - prom * (x[i] - prom)); 
+            }
+            return Math.Sqrt(res / (MAX - 1));
         }
         public static int ContarDecenas(int[] x)
         {
